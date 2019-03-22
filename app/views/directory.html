@@ -1,0 +1,39 @@
+<div class="container content">
+	<div class="row buttons">
+		<div class="col s6">
+			<button ng-click="order = 'name'" class="left waves-effect waves-light white black-text btn">
+				Order by name
+			</button>
+		</div>
+		<div class="col s6">
+			<button ng-click="order = 'belt'" class="right waves-effect waves-light white black-text btn">
+				Order by belt
+			</button>
+		</div>
+	</div>
+	<div class="row">
+		<input type="text" ng-model="recherche.name" id="nom">
+		<label for="nom">Recherche par le nom</label>
+	</div>
+	<div class="row">
+		<ul id="ninja-list" class="collection">
+			<li ng-repeat="ninja in ninjas | orderBy: order | filter: recherche" ng-show="ninja.available" class="collection-item">
+				<img ng-src="{{ninja.thumb}}" style="margin: -12px 10px 0 0;float:left;width:50px;" ng-show="ninja.thumb">
+				<div class="right" ng-click="removeNinja(ninja)" style="cursor:pointer">X</div>
+				<h3>{{ninja.name}} - {{ninja.rate | currency}}</h3>
+				<span class="{{ninja.belt}} white-text" style="border-radius: 5px;padding: 5px">{{ninja.belt | uppercase}} - BELT</span>
+			</li>
+		</ul>
+	</div>
+	<div class="row">
+		<form ng-submit="addNinja()" style="margin-bottom: 30px">
+			<input type="text" ng-model="newninja.name" placeholder="name">
+			<input type="text" ng-model="newninja.belt" placeholder="belt">
+			<input type="text" ng-model="newninja.rate" placeholder="rate">
+			<div style="text-align:center"><input type="submit" class="waves-effect waves-light white black-text btn"></div>
+		</form>
+	</div>
+	<div class="row">
+		<a href="" ng-click="removeAll()">Remove All Ninjas</a>
+	</div>
+</div>

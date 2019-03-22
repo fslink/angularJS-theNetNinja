@@ -1,0 +1,63 @@
+.orange {
+	color: orange;
+}
+
+.buttons {
+	margin-top: 5px;
+	margin-bottom: 5px;
+}
+
+.content {
+  padding: 10px;
+  overflow: hidden;
+}
+/* ANIMATIONS */
+/*
+  We are using CSS transitions for when the enter and move events
+  are triggered for the element that has the `repeated-item` class
+*/
+main.ng-enter, main.ng-move {
+  transition: all 0.5s linear;
+  opacity: 0;
+}
+
+/*
+  `.ng-enter-active` and `.ng-move-active` are where the transition destination
+  properties are set so that the animation knows what to animate
+*/
+main.ng-enter.ng-enter-active,
+main.ng-move.ng-move-active {
+  opacity: 1;
+}
+
+/*
+  We are using CSS keyframe animations for when the `leave` event
+  is triggered for the element that has the `repeated-item` class
+*/
+
+#ninja-list li.ng-enter{
+  transition: 0.2s linear all;
+  opacity: 0;
+  transform: translateY(30px);
+}
+
+#ninja-list li.ng-enter.ng-enter-active{
+  opacity: 1;
+  transform: translateY(0);
+}
+
+#ninja-list li.ng-leave{
+  transition: 0.3s linear all;
+  opacity: 1;
+  transform: translateX(0);
+}
+
+#ninja-list li.ng-leave.ng-leave-active{
+  opacity: 0;
+  transform: translateX(-100%);
+}
+
+#ninja-list li.ng-leave-stagger{
+  transition-delay: 0.2s;
+  transition-duration: 0;
+}
