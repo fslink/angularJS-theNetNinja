@@ -4,15 +4,15 @@
 			<h3 style="text-align: center">Contact Form</h3>
 			<form action="contactForm" novalidate style="text-align: center">
 				<div class="input-field col s6">
-					<input id="name" type="text" name="name">
+					<input id="name" type="text" name="name" ng-model="contact.name" ng-required="true">
 					<label for="name">Your Name</label>
 				</div>
 				<div class="input-field col s6">
-					<input id="email" type="email" name="email">
+					<input id="email" type="email" name="email" ng-model="contact.email" ng-required="true">
 					<label for="email">Your Email</label>
 				</div>
 				<div class="input-field col s12">
-					<textarea id="message" name="message" class="materialize-textarea"></textarea>
+					<textarea id="message" name="message" class="materialize-textarea" ng-model="contact.message" ng-required="true"></textarea>
 					<label for="message">Your Message</label>
 				</div>
 				<input type="submit" value="Send" class="btn">

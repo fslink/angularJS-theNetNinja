@@ -61,3 +61,7 @@ main.ng-move.ng-move-active {
   transition-delay: 0.2s;
   transition-duration: 0;
 }
+
+input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty{
+  border-bottom: solid 2px red;
+}
