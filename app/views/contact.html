@@ -2,20 +2,26 @@
 	<div class="row">
 		<div class="col s12">
 			<h3 style="text-align: center">Contact Form</h3>
-			<form action="contactForm" novalidate style="text-align: center">
+			<form name="contactForm" ng-submit="sendMessage()" novalidate style="text-align: center">
 				<div class="input-field col s6">
 					<input id="name" type="text" name="name" ng-model="contact.name" ng-required="true">
 					<label for="name">Your Name</label>
+					<div ng-show="contactForm.name.$touched && contactForm.name.$invalid">
+						<small style="color: red;display: block;text-align: center;">Enter a valid name</small>
+					</div>
 				</div>
 				<div class="input-field col s6">
 					<input id="email" type="email" name="email" ng-model="contact.email" ng-required="true">
 					<label for="email">Your Email</label>
+					<div ng-show="contactForm.email.$touched && contactForm.email.$invalid">
+						<small style="color: red;display: block;text-align: center;">Enter a valid email</small>
+					</div>
 				</div>
 				<div class="input-field col s12">
 					<textarea id="message" name="message" class="materialize-textarea" ng-model="contact.message" ng-required="true"></textarea>
 					<label for="message">Your Message</label>
 				</div>
-				<input type="submit" value="Send" class="btn">
+				<input type="submit" value="Send" class="btn" ng-disabled="contactForm.$invalid">
 			</form>
 		</div>
 	</div>
