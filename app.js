@@ -8,9 +8,10 @@ var myLogger = function (req, res, next) {
 };
 
 app.use(myLogger);
+app.use(express.static('app/'));
 
 // respond with "hello world" when a GET request is made to the homepage
-app.use(function(req, res){
+app.get('/', function(req, res){
 	res.sendFile(path.join(__dirname, '/app/index.html'));
 });
 
